@@ -1,0 +1,65 @@
+<h1>GENERADOR DE LOGEO</h1>
+
+<div class="form-container">
+
+
+    <form  #formTemplate="ngForm" [formGroup]="componentForm"  class="generador-form mat-elevation-z2">
+
+        <mat-grid-list [cols]="colsSize" rowHeight="70px" gutterSize="0px" (window:resize)="onResize()">
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field>
+                    <mat-label>ACTIVIDAD *</mat-label>
+
+                    <mat-select formControlName="actividad">
+                        <mat-option class="option-style" *ngFor="let actividad of actividades"
+                            [value]="actividad.codigo">
+                            {{ actividad.descripcion }}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field>
+                    <mat-label>TAREA *</mat-label>
+
+                    <mat-select formControlName="tarea">
+                        <mat-option class="option-style" *ngFor="let tarea of tareas" [value]="tarea.codigo">
+                            {{ tarea.descripcion }}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-radio-group 
+                    formControlName="tipo">
+                    <mat-radio-button class="example-radio-button" *ngFor="let type of tipos" [value]="type">
+                        {{type}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </mat-grid-tile>
+            {{'hola'}}
+
+
+
+        </mat-grid-list>
+
+        <div class="buttons-container">
+
+            <button (click)="generar()" mat-raised-button color="primary" type="button" style="margin-right: 10px;">
+                <mat-icon>save</mat-icon>
+                GENERAR
+            </button>
+            <button (click)="limpiar()" mat-raised-button color="primary">
+                <mat-icon>update</mat-icon>
+                LIMPIAR
+            </button>
+
+        </div>
+
+    </form>
+</div>
