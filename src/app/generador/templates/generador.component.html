@@ -3,10 +3,9 @@
 <div class="form-container">
 
 
-    <form  #formTemplate="ngForm" [formGroup]="componentForm"  class="generador-form mat-elevation-z2">
+    <form #formTemplate="ngForm" [formGroup]="componentForm" class="generador-form mat-elevation-z2">
 
-        <mat-grid-list [cols]="colsSize" rowHeight="70px" gutterSize="0px" (window:resize)="onResize()">
-
+        <mat-grid-list [cols]="3" rowHeight="70px" gutterSize="0px" (window:resize)="onResize()">
             <mat-grid-tile [colspan]="1" [rowspan]="1">
                 <mat-form-field>
                     <mat-label>ACTIVIDAD *</mat-label>
@@ -35,18 +34,46 @@
             </mat-grid-tile>
 
             <mat-grid-tile [colspan]="1" [rowspan]="1">
-                <mat-radio-group 
-                    formControlName="tipo">
-                    <mat-radio-button class="example-radio-button" *ngFor="let type of tipos" [value]="type">
-                        {{type}}
-                    </mat-radio-button>
-                </mat-radio-group>
+                <mat-form-field>
+                    <mat-label>TIPO *</mat-label>
+
+                    <mat-select formControlName="tipo">
+                        <mat-option class="option-style" *ngFor="let type of tipos" [value]="type">
+                            {{ type }}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
             </mat-grid-tile>
-            {{'hola'}}
-
-
 
         </mat-grid-list>
+
+        <mat-grid-list [cols]="2" rowHeight="70px" gutterSize="0px" (window:resize)="onResize()">
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <input placeholder="INICIO" aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" readonly>
+                <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <input placeholder="FIN" aria-label="24hr format" [ngxTimepicker]="fullTime2" [format]="24" readonly>
+                <ngx-material-timepicker #fullTime2></ngx-material-timepicker>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        <mat-grid-list [cols]="3" rowHeight="70px" gutterSize="0px" (window:resize)="onResize()">
+            <mat-grid-tile [colspan]="3" [rowspan]="2">
+                <mat-form-field appearance="outline">
+                    <mat-label>DESCRIPCION</mat-label>
+                    <textarea formControlName="descripcion" matInput placeholder="DESCRIPCION" required></textarea>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+
+
+
 
         <div class="buttons-container">
 

@@ -45,6 +45,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { GeneradorComponent } from './components/generador.component';
 import { GeneradorService } from './services/generador.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { BrowserModule } from '@angular/platform-browser'
 
 
 @NgModule({
@@ -94,7 +96,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PortalModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule,  
+    ReactiveFormsModule,
+    NgxMaterialTimepickerModule,
+    BrowserModule
     ],
     exports: [
         GeneradorComponent

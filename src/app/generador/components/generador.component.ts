@@ -29,7 +29,6 @@ export class GeneradorComponent  {
 
     constructor(
         private formBuiler: FormBuilder,
-        private actionService: GeneradorService,
 
     ) {
         this.onResize();
@@ -48,6 +47,7 @@ export class GeneradorComponent  {
             actividad: [data ? data.descripcion : '', Validators.required],
             tarea: [data ? data.tarea : '', Validators.required],
             tipo: [data ? data.tipo : '', Validators.required],
+            descripcion: [data ? data.descripcion : '', Validators.required],
         });
     }
 
